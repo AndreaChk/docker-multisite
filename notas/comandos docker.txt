@@ -1,0 +1,10 @@
+//comando para borrar contenido de docker
+docker ps -q | xargs -r docker stop
+docker ps -aq | xargs -r docker rm -f
+docker images -q | xargs -r docker rmi -f
+docker volume ls -q | xargs -r docker volume rm
+docker network ls --filter "type=custom" -q | xargs -r docker network rm
+docker system prune -a --volumes -f
+//comandos para verificar o ver
+docker volume ls
+docker network ls
